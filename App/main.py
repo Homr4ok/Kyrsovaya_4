@@ -13,8 +13,6 @@ term_extractor = TermExtractor()
 def text_from_video():
     model = whisper.load_model("turbo")
     text = model.transcribe("input.mp3").get("text")
-
-
     sia = SentimentIntensityAnalyzer()
     res = sia.polarity_scores(text)
     max_val_key = max(res, key=res.get)
